@@ -156,6 +156,7 @@ class Parser {
     }
 
     void t_3_0(int i) {
+        if (!(pow_x >= 0 && pow_x < 10 && pow_y >= 0 && pow_y < 10 && pow_z >= 0 && pow_z < 10)) { throw std::invalid_argument("pow of monom is out of range"); }
         pol.add(Monom(coeff, 100 * pow_x + 10 * pow_y + pow_z));
         reset();
         if (lex[i].str == "+") coeff = 1;
@@ -186,7 +187,8 @@ class Parser {
     }
     
     void t_5_0(int i) {
-         pol.add(Monom(coeff, 100*pow_x+10*pow_y+pow_z));
+        if (!(pow_x >= 0 && pow_x < 10 && pow_y >= 0 && pow_y < 10 && pow_z >= 0 && pow_z < 10)) { throw std::invalid_argument("pow of monom is out of range"); }
+        pol.add(Monom(coeff, 100*pow_x+10*pow_y+pow_z));
         reset();
         if (lex[i].str == "+") coeff = 1;
         else coeff = -1;
@@ -206,8 +208,8 @@ class Parser {
         }
     }
 
-    //лексический разбор
-    void lexical_analys() {
+    //синтаксический анализ
+    void syntaxis_analis() {
         std::string tmp_str = input;
 
 
@@ -244,8 +246,8 @@ class Parser {
     }
 
 
-    //синтаксический анализ
-    void syntaxis_analis() {
+    //лексический анализ
+    void lexic_analis() {
 
         //создаем таблицу состояний и функций, которые соответствую переходам между ними
         std::vector<std::vector<std::pair<int, void (Parser::*)(int a)>>> table(6);
@@ -296,8 +298,9 @@ public:
 	Parser(std::string input) {
         input.erase(remove_if(input.begin(), input.end(), isspace), input.end());
         this->input = input;
-        lexical_analys();
         syntaxis_analis();
+        lexic_analis();
+        
 	}
 
     

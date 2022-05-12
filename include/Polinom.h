@@ -7,7 +7,7 @@ private:
 public:
 	Monom(double coeff, int index):coeff(coeff),index(index)
 	{
-		//if (!(index >= 0 && index <= 999)) throw std::invalid_argument("invalid argument");
+		if (!((index >= 0 && index <= 999) || index == -1)) throw std::invalid_argument("invalid argument");
 	}
 
 	Monom operator-() const {
@@ -202,7 +202,7 @@ Polinom operator-(const Polinom& lhs, const Polinom& rhs) {
 
 
 Polinom operator*(const Polinom& lhs, const Polinom& rhs) {
-	
+
 	if (rhs.pol.begin().next() == rhs.pol.end() || lhs.pol.begin().next() == lhs.pol.end()) return Polinom();
 
 
@@ -213,11 +213,12 @@ Polinom operator*(const Polinom& lhs, const Polinom& rhs) {
 	if (((lt % 10) + (rt % 10) > 9) || (((lt % 100 / 10) + (rt % 100 / 10)) > 9) || (((lt / 100) + (rt / 100)) > 9)) throw std::invalid_argument("multiply_of_polinoms_out_of_range");
 
 
-	
+
 	Polinom temp;
 	for (auto lt = lhs.pol.begin().next(); lt != lhs.pol.end(); lt++)
-		for (auto rt = rhs.pol.begin().next(); rt != rhs.pol.end(); rt++)
+		for (auto rt = rhs.pol.begin().next(); rt != rhs.pol.end(); rt++) 
 			temp.add((*rt) * (*lt));
+		
 	return temp;
 }
 

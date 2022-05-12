@@ -7,66 +7,6 @@
 using namespace std;
 int main()
 {
-    /*TList<string> l;
-    cout << l.empty() << endl;
-    l.push_back("3");
-    l.push_back("123");
-    l.push_back("8");
-    cout << l << endl;
-    cout << l.empty() << endl;
-    //l.remove("123");
-    cout << l << endl;
-    l.push_back("1234");
-    l.remove_first();
-    cout << l << endl;
-    l.remove_last();
-    cout << l << endl;
-
-
-    TList<string> plist(l);
-    cout << plist << endl << endl << endl;
-
-    for (auto it = plist.begin(); it != plist.end(); it++) {
-        cout << (*it) << " ";
-    }
-    */
-
-    /*Polinom fg,cg;
-    fg.add(Monom(5,128));
-    fg.add(Monom(6,178));
-    fg.add(Monom(8,81));
-    cg.add(Monom(8, 561));
-    cg.add(Monom(8, 1));
-    cg.add(Monom(251, 131));
-    cg.add(Monom(200, 81));
-    cg.add(Monom(251, 61));
-    cg.add(Monom(251, 51));
-    cg.add(Monom(-5, 128));
-    */
-
-
-    /*fg.add(Monom(5, 665));
-    fg.add(Monom(-4, 564));
-    fg.add(Monom(10, 231));
-
-
-
-    cg.add(Monom(-2, 334));
-    cg.add(Monom(-5, 1));
-
-    Polinom t = fg * cg;*/
-
-    //cout << fg << endl << -fg << endl;
-    //cout << endl << fg+cg;
-    //cout << endl <<fg*cg;
-    /*string a="";
-    getline(std::cin, a);
-    Parser b(a);
-    //b.lexical_analys();
-    b.SyntaxisAnalis();
-    std::cout << b.pol;*/
-
-
     int n;
     std::cout << "1.work with polinoms\n";
     std::cout << "2.exit\n";
